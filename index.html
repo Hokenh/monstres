@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles/cards.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"
+        integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
     <script src="scripts/card.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
@@ -24,7 +26,8 @@
             <div class="monstercards-container monstercards-container-5-monstercards">
                 <monster-card v-for="card in cards" :key='card.cardname' v-bind:cardname='card.cardname'
                     v-bind:power='card.power' v-bind:syllabe='card.syllabe' v-bind:deck='card.deck'
-                    v-bind:image='card.image'></monster-card>
+                    v-bind:image='card.image' v-on:request-new-card='newCard'></monster-card>
+
             </div>
         </div>
     </div>
@@ -45,39 +48,43 @@
                     deck: "body",
                     power: 4,
                     syllabe: "MA",
-                    image: "https://api.adorable.io/avatars/150/a"
+                    image: "/assets/images/eyes/01.png"
                 },
                 {
                     cardname: "2",
                     deck: "eyes",
                     power: 2,
                     syllabe: "LA",
-                    image: "https://api.adorable.io/avatars/150/b"
+                    image: "/assets/images/eyes/02.png"
                 },
                 {
                     cardname: "3",
                     deck: "nose",
                     power: 2,
                     syllabe: "PI",
-                    image: "https://api.adorable.io/avatars/150/c"
+                    image: "/assets/images/eyes/03.png"
                 },
                 {
                     cardname: "4",
                     deck: "mouth",
                     power: 2,
                     syllabe: "MO",
-                    image: "https://api.adorable.io/avatars/150/d"
+                    image: "/assets/images/eyes/04.png"
                 },
                 {
                     cardname: "5",
                     deck: "complement",
                     power: 2,
                     syllabe: "SA",
-                    image: "https://api.adorable.io/avatars/150/e"
+                    image: "/assets/images/eyes/05.png"
                 },
             ]
         },
-        methods: {},
+        methods: {
+            newCard: function () {
+                alert('newCard');
+            }
+        },
 
     });
 </script>

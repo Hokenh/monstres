@@ -26,7 +26,7 @@ Vue.component('monsterCard', {
         },
         reveal: function () {
             this.faceDown = false;
-        },
+        }
         // setCard: function (t) {
         //     if (t instanceof Object) {
         //         putFaceDown();
@@ -63,5 +63,6 @@ Vue.component('monsterCard', {
         '       </div>' +
         '       <div class="back"></div>' +
         '   </div>' +
+        ' <div style="text-align:center; margin-top:2em"><button class="button is-primary" @click="$emit(\'request-new-card\')" >newCard</button></div>' +
         '</div >'
 })
