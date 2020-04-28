@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="scripts/decks.js"></script>
+
+</head>
+
+<body>
+    <br />
+    <br />
+    <div class="main-container">
+        <div class="cards-container cards-container-5-cards">
+            <!--   First Card -->
+            <div class="card-container">
+                <div class="card card--face-down">
+                    <div class="front">
+                        <img src="https://api.adorable.io/avatars/150/1">
+                    </div>
+                    <div class="back">
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card card--face-down">
+                    <div class="front">
+                        <img src="https://api.adorable.io/avatars/150/2">
+                    </div>
+                    <div class="back">
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card card--face-down">
+                    <div class="front">
+                        <img src="https://api.adorable.io/avatars/150/3">
+                    </div>
+                    <div class="back">
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card card--face-down">
+                    <div class="front">
+                        <img src="https://api.adorable.io/avatars/150/4">
+                    </div>
+                    <div class="back">
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card card--face-down">
+                    <div class="front">
+                        <img src="https://api.adorable.io/avatars/150/5">
+                    </div>
+                    <div class="back">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(".card").on("click", function () {
+        $(this).toggleClass("card--face-down");
+    });
+</script>
+
+</html>
