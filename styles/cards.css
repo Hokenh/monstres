@@ -1,16 +1,16 @@
-.card-container {
+.monstercard-container {
     -webkit-perspective: 500px;
     perspective: 500px;
 }
 
-/* .card-container:hover .card, */
-.card-container .card.card--face-down {
+/* .monstercard-container:hover .monstercard, */
+.monstercard-container .monstercard.monstercard--face-down {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 
-.card {
+.monstercard {
     -webkit-transition: -webkit-transform 0.7s;
     transition: transform 0.7s;
     -webkit-transform-style: preserve-3d;
@@ -29,7 +29,7 @@
 }
 
 /*Custom Styles*/
-.cards-container {
+.monstercards-container {
     display: -webkit-flex;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -45,38 +45,113 @@
     justify-content: center;
 }
 
-.cards-container {
+.monstercards-container {
     width: 100%;
 }
 
-.card {
+.monstercard {
     width: 100%;
     padding-top: 156%;
-    border-radius: 10px;
-
+    background: white;
+    user-select: none;
+    cursor: pointer;
 }
 
-.cards-container.cards-container-5-cards .card-container {
+.monstercard .inner {
+    border: 1px solid black;
+    position: absolute;
+    border-radius: 2vh;
+    left: 1vh;
+    right: 1vh;
+    top: 1vh;
+    bottom: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.monstercard .syllabe {
+    position: absolute;
+    font-family: 'Nunito', sans-serif;
+    bottom: 5%;
+    border-top: 2px dashed black;
+    border-bottom: 2px dashed black;
+    width: 100%;
+    height: 3vh;
+    line-height: 3vh;
+    font-weight: 700;
+    font-size: 2vh;
+    background: white;
+    z-index: 10;
+
+    background-size: 10px 10px;
+    background-position: -3;
+    background-image:
+        linear-gradient(to right, rgba(0, 255, 255, 0.507) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 255, 0.507) 1px, transparent 1px);
+}
+
+.monstercard .power {
+    display: inline-block;
+    position: absolute;
+    font-family: 'Arial',
+        sans-serif;
+    margin: 5px;
+    padding: 2%;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1.25rem;
+    font-size: 1.5rem;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid grey;
+}
+
+.monstercard.nose .inner {
+    background: pink;
+}
+
+.monstercard.mouth .inner {
+    background: cadetblue;
+}
+
+.monstercard.body .inner {
+    background: firebrick;
+}
+
+.monstercard.eyes .inner {
+    background: sandybrown;
+}
+
+
+.monstercard.complement .inner {
+    background: forestgreen;
+}
+
+
+.monstercards-container.monstercards-container-5-monstercards .monstercard-container {
     width: 17%;
     margin: 1.5%;
 }
 
 .front,
 .back {
+    border-radius: 1.5rem;
     box-shadow: 0 1px 6px 0;
     position: absolute;
     width: 100%;
     top: 0;
     bottom: 0;
+    text-align: center;
+    overflow: hidden;
 }
 
 .front {
     text-align: middle;
-}
-
-.fron img {
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
 }
 
 .back {

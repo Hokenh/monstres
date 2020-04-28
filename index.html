@@ -1,71 +1,84 @@
-<html>
+<html lang="ca">
 
 <head>
+    <title>P3 Clase dels monstres</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/cards.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script src="scripts/card.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="scripts/decks.js"></script>
+    <!-- <script src="scripts/decks.js"></script> -->
+
 
 </head>
 
 <body>
     <br />
     <br />
-    <div class="main-container">
-        <div class="cards-container cards-container-5-cards">
-            <!--   First Card -->
-            <div class="card-container">
-                <div class="card card--face-down">
-                    <div class="front">
-                        <img src="https://api.adorable.io/avatars/150/1">
-                    </div>
-                    <div class="back">
-                    </div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card card--face-down">
-                    <div class="front">
-                        <img src="https://api.adorable.io/avatars/150/2">
-                    </div>
-                    <div class="back">
-                    </div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card card--face-down">
-                    <div class="front">
-                        <img src="https://api.adorable.io/avatars/150/3">
-                    </div>
-                    <div class="back">
-                    </div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card card--face-down">
-                    <div class="front">
-                        <img src="https://api.adorable.io/avatars/150/4">
-                    </div>
-                    <div class="back">
-                    </div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card card--face-down">
-                    <div class="front">
-                        <img src="https://api.adorable.io/avatars/150/5">
-                    </div>
-                    <div class="back">
-                    </div>
-                </div>
+    <div id="app">
+        <div class="main-container">
+            <div class="monstercards-container monstercards-container-5-monstercards">
+                <monster-card v-for="card in cards" :key='card.cardname' v-bind:cardname='card.cardname'
+                    v-bind:power='card.power' v-bind:syllabe='card.syllabe' v-bind:deck='card.deck'
+                    v-bind:image='card.image'></monster-card>
             </div>
         </div>
     </div>
+    </div>
 </body>
 <script>
-    $(".card").on("click", function () {
-        $(this).toggleClass("card--face-down");
+    // $(".card").on("click", function () {
+    //     $(this).toggleClass("card--face-down");
+    // });
+
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            cards: [{
+                    cardname: "1",
+                    deck: "body",
+                    power: 4,
+                    syllabe: "MA",
+                    image: "https://api.adorable.io/avatars/150/a"
+                },
+                {
+                    cardname: "2",
+                    deck: "eyes",
+                    power: 2,
+                    syllabe: "LA",
+                    image: "https://api.adorable.io/avatars/150/b"
+                },
+                {
+                    cardname: "3",
+                    deck: "nose",
+                    power: 2,
+                    syllabe: "PI",
+                    image: "https://api.adorable.io/avatars/150/c"
+                },
+                {
+                    cardname: "4",
+                    deck: "mouth",
+                    power: 2,
+                    syllabe: "MO",
+                    image: "https://api.adorable.io/avatars/150/d"
+                },
+                {
+                    cardname: "5",
+                    deck: "complement",
+                    power: 2,
+                    syllabe: "SA",
+                    image: "https://api.adorable.io/avatars/150/e"
+                },
+            ]
+        },
+        methods: {},
+
     });
 </script>
 

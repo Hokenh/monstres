@@ -15,10 +15,7 @@ const deckTypes = [
 ];
 
 var decks = {
-    "nose": {
-        background: "",
-        cards: {}
-    },
+    "nose": {},
     "body": {},
     "eyes": {},
     "mouth": {},
