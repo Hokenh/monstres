@@ -23,10 +23,24 @@
     <br />
     <div id="app">
         <div class="main-container">
+            <button class="button is-primary" @click="drawNewCards">Noves cartes</button>
             <div class="monstercards-container monstercards-container-5-monstercards">
-                <monster-card v-for="card in cards" :key='card.cardname' v-bind:cardname='card.cardname'
-                    v-bind:power='card.power' v-bind:syllabe='card.syllabe' v-bind:deck='card.deck'
-                    v-bind:image='card.image' v-on:request-new-card='newCard'></monster-card>
+                <monster-card ref="body" v-bind:cardname='cards.body.cardname' v-bind:power='cards.body.power'
+                    v-bind:syllabe='cards.body.syllabe' v-bind:deck='cards.body.deck' v-bind:image='cards.body.image'
+                    v-on:request-new-card='newCard'></monster-card>
+                <monster-card ref="eyes" v-bind:cardname='cards.eyes.cardname' v-bind:power='cards.eyes.power'
+                    v-bind:syllabe='cards.eyes.syllabe' v-bind:deck='cards.eyes.deck' v-bind:image='cards.eyes.image'
+                    v-on:request-new-card='newCard'></monster-card>
+                <monster-card ref="nose" v-bind:cardname='cards.nose.cardname' v-bind:power='cards.nose.power'
+                    v-bind:syllabe='cards.nose.syllabe' v-bind:deck='cards.nose.deck' v-bind:image='cards.nose.image'
+                    v-on:request-new-card='newCard'></monster-card>
+                <monster-card ref="mouth" v-bind:cardname='cards.mouth.cardname' v-bind:power='cards.mouth.power'
+                    v-bind:syllabe='cards.mouth.syllabe' v-bind:deck='cards.mouth.deck' v-bind:image='cards.mouth.image'
+                    v-on:request-new-card='newCard'></monster-card>
+                <monster-card ref="complement" v-bind:cardname='cards.complement.cardname'
+                    v-bind:power='cards.complement.power' v-bind:syllabe='cards.complement.syllabe'
+                    v-bind:deck='cards.complement.deck' v-bind:image='cards.complement.image'
+                    v-on:request-new-card='newCard'></monster-card>
 
             </div>
         </div>
@@ -43,47 +57,78 @@
         el: '#app',
         data: {
             message: 'Hello Vue!',
-            cards: [{
+            cards: {
+                body: {
                     cardname: "1",
                     deck: "body",
                     power: 4,
                     syllabe: "MA",
-                    image: "assets/images/eyes/011.png"
+                    image: "assets/cards/body/01.png"
                 },
-                {
+                eyes: {
                     cardname: "2",
                     deck: "eyes",
                     power: 2,
                     syllabe: "LA",
-                    image: "assets/images/eyes/012.png"
+                    image: "assets/cards/eyes/019.png"
                 },
-                {
+                nose: {
                     cardname: "3",
                     deck: "nose",
                     power: 2,
                     syllabe: "PI",
-                    image: "assets/images/eyes/013.png"
+                    image: "assets/cards/nose/01.png"
                 },
-                {
+                mouth: {
                     cardname: "4",
                     deck: "mouth",
                     power: 2,
                     syllabe: "MO",
-                    image: "assets/images/eyes/014.png"
+                    image: "assets/cards/mouth/002.png"
                 },
-                {
+                complement: {
                     cardname: "5",
                     deck: "complement",
                     power: 2,
                     syllabe: "SA",
-                    image: "assets/images/eyes/015.png"
-                },
-            ]
+                    image: "assets/cards/complement/01.png"
+                }
+            }
+
         },
         methods: {
             newCard: function () {
                 alert('newCard');
+            },
+            drawNewCards: function () {
+
+                var self = this;
+                if (this.$refs.body.faceDown && this.$refs.eyes.faceDown && this.$refs.nose.faceDown &&
+                    this.$refs.mouth.faceDown && this.$refs.complement.faceDown) {
+                    self.revealAll()
+                } else {
+                    this.facedownAll()
+                    setTimeout(self.revealAll, 1000)
+                }
+
+
+
+            },
+            revealAll: function () {
+                this.$refs.body.reveal()
+                this.$refs.eyes.reveal()
+                this.$refs.nose.reveal()
+                this.$refs.mouth.reveal()
+                this.$refs.complement.reveal()
+            },
+            facedownAll: function () {
+                this.$refs.body.facedown()
+                this.$refs.eyes.facedown()
+                this.$refs.nose.facedown()
+                this.$refs.mouth.facedown()
+                this.$refs.complement.facedown()
             }
+
         },
 
     });

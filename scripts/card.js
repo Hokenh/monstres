@@ -21,7 +21,7 @@ Vue.component('monsterCard', {
         flip: function () {
             this.faceDown = !this.faceDown;
         },
-        putFaceDown: function () {
+        facedown: function () {
             this.faceDown = true;
         },
         reveal: function () {
