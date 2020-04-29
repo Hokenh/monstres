@@ -24,6 +24,7 @@
     <div id="app">
         <div class="main-container">
             <button class="button is-primary" @click="drawNewCards">Noves cartes</button>
+
             <div class="monstercards-container monstercards-container-5-monstercards">
                 <monster-card ref="body" v-bind:cardname='cards.body.cardname' v-bind:power='cards.body.power'
                     v-bind:syllabe='cards.body.syllabe' v-bind:deck='cards.body.deck' v-bind:image='cards.body.image'
@@ -48,11 +49,6 @@
     </div>
 </body>
 <script>
-    // $(".card").on("click", function () {
-    //     $(this).toggleClass("card--face-down");
-    // });
-
-
     var app = new Vue({
         el: '#app',
         data: {
