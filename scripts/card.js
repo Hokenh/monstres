@@ -46,6 +46,6 @@ Vue.component('monsterCard', {
         '       </div>' +
         '       <div class="back"></div>' +
         '   </div>' +
-        ' <div style="text-align:center; margin-top:2em"><button class="button is-primary" @click="$emit(\'request-new-card\')" >{{newcardliteral}}</button></div>' +
+        ' <div style="text-align:center; margin-top:2em"><button v-show="!faceDown" class="button is-primary" @click="$emit(\'request-new-card\')" >{{newcardliteral}}</button></div>' +
         '</div >'
 })

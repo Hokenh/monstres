@@ -23,7 +23,17 @@
     <br />
     <div id="app">
         <div class="main-container">
-            <button class="button is-primary" @click="drawNewCards">Noves cartes</button>
+            <div class="is-right">
+                <div class="buttons has-addons is-right">
+                    <button class="button" :class="{'is-success': selectedLanguage == 'ca'}"
+                        @click="selectedLanguage='ca'">Català</button>
+                    <button class="button" :class="{'is-success': selectedLanguage == 'es'}"
+                        @click="selectedLanguage='es'">Español</button>
+                    <button class="button" :class="{'is-success': selectedLanguage == 'en'}"
+                        @click="selectedLanguage='en'">English</button>
+                </div>
+            </div>
+            <button class="button is-primary" @click="drawNewCards">{{i18n[selectedLanguage].drawNewCards}}</button>
 
             <div class="monstercards-container monstercards-container-5-monstercards">
                 <monster-card ref="body" v-bind:cardname='currentHand.body.cardname'
@@ -74,55 +84,41 @@
             selectedLanguage: "ca",
             i18n: {
                 "ca": {
+                    drawNewCards: "Reparteix cartes",
                     newBody: "Nou cos",
                     newEyes: "Nous ulls",
                     newNose: "Nou nas",
                     newMouth: "Nova boca",
                     newComplement: "Nou complement"
+                },
+                "es": {
+                    drawNewCards: "Reparte cartas",
+                    newBody: "Nuevo cuerpo",
+                    newEyes: "Nuevos ojos",
+                    newNose: "Nueva nariz",
+                    newMouth: "Nueva boca",
+                    newComplement: "Nuevo complemento"
+                },
+                "en": {
+                    drawNewCards: "Draw cards",
+                    newBody: "New body",
+                    newEyes: "New eyes",
+                    newNose: "New nose",
+                    newMouth: "New mouth",
+                    newComplement: "New complement"
                 }
             },
             currentHand: {
-                body: {
-                    cardname: "1",
-                    deck: "body",
-                    power: 4,
-                    syllabe: "MA",
-                    image: "assets/cards/body/01.png"
-                },
-                eyes: {
-                    cardname: "2",
-                    deck: "eyes",
-                    power: 2,
-                    syllabe: "LA",
-                    image: "assets/cards/eyes/019.png"
-                },
-                nose: {
-                    cardname: "3",
-                    deck: "nose",
-                    power: 2,
-                    syllabe: "PI",
-                    image: "assets/cards/nose/01.png"
-                },
-                mouth: {
-                    cardname: "4",
-                    deck: "mouth",
-                    power: 2,
-                    syllabe: "MO",
-                    image: "assets/cards/mouth/002.png"
-                },
-                complement: {
-                    cardname: "5",
-                    deck: "complement",
-                    power: 2,
-                    syllabe: "SA",
-                    image: "assets/cards/complement/01.png"
-                }
+                body: {},
+                eyes: {},
+                nose: {},
+                mouth: {},
+                complement: {}
             }
-
         },
         methods: {
             newCard: function (deck) {
-                this.drawNewCard(deck);
+                this.drawNewCard(deck, this.currentHand[deck]);
             },
             drawNewCards: function () {
                 this.initializeDecks();
