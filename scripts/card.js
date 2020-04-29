@@ -15,7 +15,8 @@ Vue.component('monsterCard', {
         "power": Number,
         "syllabe": String,
         "deck": String,
-        "image": String
+        "image": String,
+        "newcardliteral": String
     },
     methods: {
         flip: function () {
@@ -27,24 +28,6 @@ Vue.component('monsterCard', {
         reveal: function () {
             this.faceDown = false;
         }
-        // setCard: function (t) {
-        //     if (t instanceof Object) {
-        //         putFaceDown();
-        //         power = t.power;
-        //         syllabe = t.syllabe;
-        //         deck = t.deck;
-        //         image = t.image;
-        //     } else if (typeof t === "string") {
-        //         var elements = t.split('|');
-        //         if (elements.length < 4) {
-        //             return null;
-        //         }
-        //         deck = elements[0];
-        //         syllabe = elements[1];
-        //         power = elements[2];
-        //         image = elements[3];
-        //     }
-        // }
     },
     template: '<div class="monstercard-container">' +
         '   <div class= "monstercard" @click="flip" :class= "{ \'monstercard--face-down\': faceDown , \'nose\': deck == \'nose\' || deck ==\'n\', \'mouth\': deck == \'mouth\' || deck ==\'m\'' +
@@ -63,6 +46,6 @@ Vue.component('monsterCard', {
         '       </div>' +
         '       <div class="back"></div>' +
         '   </div>' +
-        ' <div style="text-align:center; margin-top:2em"><button class="button is-primary" @click="$emit(\'request-new-card\')" >newCard</button></div>' +
+        ' <div style="text-align:center; margin-top:2em"><button class="button is-primary" @click="$emit(\'request-new-card\')" >{{newcardliteral}}</button></div>' +
         '</div >'
 })
