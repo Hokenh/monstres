@@ -1,10 +1,23 @@
 .main-container {
     width: 80%;
-    margin: 30px auto;
+    margin: 0 auto;
+    padding-top: 2rem;
 }
 
-body {
-    background: url(../assets/backgrounds/wood2.jpg) center no-repeat;
-    background-size: cover;
+body,
+html {
     height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../assets/backgrounds/wood2.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
