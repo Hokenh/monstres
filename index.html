@@ -36,29 +36,34 @@
             <button class="button is-primary" @click="drawNewCards">{{i18n[selectedLanguage].drawNewCards}}</button>
 
             <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
-                <monster-card ref="body" v-bind:cardname='currentHand.body.cardname'
-                    v-bind:power='currentHand.body.power' v-bind:syllabe='currentHand.body.syllabe'
-                    v-bind:deck='currentHand.body.deck' v-bind:image='currentHand.body.image'
-                    v-bind:newcardliteral="i18n[selectedLanguage].newBody" v-on:request-new-card='newCard("body")'>
+                <monster-card ref="body" v-bind:deckname='i18n[selectedLanguage].body'
+                    v-bind:cardname='currentHand.body.cardname' v-bind:power='currentHand.body.power'
+                    v-bind:syllabe='currentHand.body.syllabe' v-bind:deck='currentHand.body.deck'
+                    v-bind:image='currentHand.body.image' v-bind:newcardliteral="i18n[selectedLanguage].newBody"
+                    v-on:request-new-card='newCard("body")'>
                 </monster-card>
-                <monster-card ref="eyes" v-bind:cardname='currentHand.eyes.cardname'
-                    v-bind:power='currentHand.eyes.power' v-bind:syllabe='currentHand.eyes.syllabe'
-                    v-bind:deck='currentHand.eyes.deck' v-bind:image='currentHand.eyes.image'
-                    v-bind:newcardliteral="i18n[selectedLanguage].newEyes" v-on:request-new-card='newCard("eyes")'>
+                <monster-card ref="eyes" v-bind:deckname='i18n[selectedLanguage].eyes'
+                    v-bind:cardname='currentHand.eyes.cardname' v-bind:power='currentHand.eyes.power'
+                    v-bind:syllabe='currentHand.eyes.syllabe' v-bind:deck='currentHand.eyes.deck'
+                    v-bind:image='currentHand.eyes.image' v-bind:newcardliteral="i18n[selectedLanguage].newEyes"
+                    v-on:request-new-card='newCard("eyes")'>
                 </monster-card>
-                <monster-card ref="nose" v-bind:cardname='currentHand.nose.cardname'
-                    v-bind:power='currentHand.nose.power' v-bind:syllabe='currentHand.nose.syllabe'
-                    v-bind:deck='currentHand.nose.deck' v-bind:image='currentHand.nose.image'
-                    v-bind:newcardliteral="i18n[selectedLanguage].newNose" v-on:request-new-card='newCard("nose")'>
+                <monster-card ref="nose" v-bind:deckname='i18n[selectedLanguage].nose'
+                    v-bind:cardname='currentHand.nose.cardname' v-bind:power='currentHand.nose.power'
+                    v-bind:syllabe='currentHand.nose.syllabe' v-bind:deck='currentHand.nose.deck'
+                    v-bind:image='currentHand.nose.image' v-bind:newcardliteral="i18n[selectedLanguage].newNose"
+                    v-on:request-new-card='newCard("nose")'>
                 </monster-card>
-                <monster-card ref="mouth" v-bind:cardname='currentHand.mouth.cardname'
-                    v-bind:power='currentHand.mouth.power' v-bind:syllabe='currentHand.mouth.syllabe'
-                    v-bind:deck='currentHand.mouth.deck' v-bind:image='currentHand.mouth.image'
-                    v-bind:newcardliteral="i18n[selectedLanguage].newMouth" v-on:request-new-card='newCard("mouth")'>
+                <monster-card ref="mouth" v-bind:deckname='i18n[selectedLanguage].mouth'
+                    v-bind:cardname='currentHand.mouth.cardname' v-bind:power='currentHand.mouth.power'
+                    v-bind:syllabe='currentHand.mouth.syllabe' v-bind:deck='currentHand.mouth.deck'
+                    v-bind:image='currentHand.mouth.image' v-bind:newcardliteral="i18n[selectedLanguage].newMouth"
+                    v-on:request-new-card='newCard("mouth")'>
                 </monster-card>
-                <monster-card ref="complement" v-bind:cardname='currentHand.complement.cardname'
-                    v-bind:power='currentHand.complement.power' v-bind:syllabe='currentHand.complement.syllabe'
-                    v-bind:deck='currentHand.complement.deck' v-bind:image='currentHand.complement.image'
+                <monster-card ref="complement" v-bind:deckname='i18n[selectedLanguage].complement'
+                    v-bind:cardname='currentHand.complement.cardname' v-bind:power='currentHand.complement.power'
+                    v-bind:syllabe='currentHand.complement.syllabe' v-bind:deck='currentHand.complement.deck'
+                    v-bind:image='currentHand.complement.image'
                     v-bind:newcardliteral="i18n[selectedLanguage].newComplement"
                     v-on:request-new-card='newCard("complement")'>
                 </monster-card>
@@ -83,6 +88,11 @@
             selectedLanguage: "ca",
             i18n: {
                 "ca": {
+                    body: "Cos",
+                    eyes: "Ulls",
+                    nose: "Nas",
+                    mouth: "Boca",
+                    complement: "Complement",
                     drawNewCards: "Reparteix cartes",
                     newBody: "Nou cos",
                     newEyes: "Nous ulls",
@@ -91,6 +101,11 @@
                     newComplement: "Nou complement"
                 },
                 "es": {
+                    body: "Cuerpo",
+                    eyes: "Ojos",
+                    nose: "Nariz",
+                    mouth: "Boca",
+                    complement: "Complemento",
                     drawNewCards: "Reparte cartas",
                     newBody: "Nuevo cuerpo",
                     newEyes: "Nuevos ojos",
@@ -99,6 +114,11 @@
                     newComplement: "Nuevo complemento"
                 },
                 "en": {
+                    body: "Body",
+                    eyes: "Eyes",
+                    nose: "Nose",
+                    mouth: "Mouth",
+                    complement: "Complement",
                     drawNewCards: "Draw cards",
                     newBody: "New body",
                     newEyes: "New eyes",
