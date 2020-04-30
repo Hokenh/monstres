@@ -31,7 +31,7 @@ Vue.component('monsterCard', {
         }
     },
     template: '<div class="monstercard-container"><h2 class="deck-title">{{deckname}}</h2>' +
-        '   <div class= "monstercard" @click="flip" :class= "{ \'monstercard--face-down\': faceDown , \'nose\': deck == \'nose\' || deck ==\'n\', \'mouth\': deck == \'mouth\' || deck ==\'m\'' +
+        '   <div class= "monstercard" @click="flip" :class="[deck]" :class="{ \'monstercard--face-down\': faceDown , \'nose\': deck == \'nose\' || deck ==\'n\', \'mouth\': deck == \'mouth\' || deck ==\'m\'' +
         '  , \'eyes\': deck == \'eyes\' || deck ==\'e\'' +
         '  , \'body\': deck == \'body\' || deck ==\'b\'' +
         '  , \'complement\': deck == \'complement\' || deck ==\'c\'}' +
@@ -42,7 +42,7 @@ Vue.component('monsterCard', {
         '                  {{power}}' +
         '              </span>' +
         '              <img :src="image">' +
-        '              <div class="syllabe">{{syllabe}}</div>' +
+        '              <div class="syllabe"><span class="deck-symbol"></span><span>{{syllabe}}</span></div>' +
         '          </div>' +
         '       </div>' +
         '       <div class="back"></div>' +
