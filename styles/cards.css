@@ -114,10 +114,10 @@
 .monstercard .deck-symbol {
     position: absolute;
     display: inline-block;
-    width: 4vw;
+    width: 2vw;
     margin: -0.5vw 0 -0.5vw 0;
     height: 100%;
-    left: 0.25vw;
+    left: 0.5vw;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
