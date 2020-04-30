@@ -35,7 +35,7 @@
             </div>
             <button class="button is-primary" @click="drawNewCards">{{i18n[selectedLanguage].drawNewCards}}</button>
 
-            <div class="monstercards-container monstercards-container-5-monstercards">
+            <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
                 <monster-card ref="body" v-bind:cardname='currentHand.body.cardname'
                     v-bind:power='currentHand.body.power' v-bind:syllabe='currentHand.body.syllabe'
                     v-bind:deck='currentHand.body.deck' v-bind:image='currentHand.body.image'
@@ -72,8 +72,7 @@
     var app = new Vue({
         el: '#app',
         data: {
-            batchCards: "body,SI,1,assets/cards/body/001.png|body,GE,1,assets/cards/body/001.png|body,NU,0,assets/cards/body/001.png|body,HA,5,assets/cards/body/001.png|body,TE,4,assets/cards/body/001.png|body,TA,0,assets/cards/body/001.png|body,LU,1,assets/cards/body/001.png|body,ZI,3,assets/cards/body/001.png|body,KE,4,assets/cards/body/001.png|body,PO,2,assets/cards/body/001.png|body,FI,5,assets/cards/body/001.png|body,PI,3,assets/cards/body/001.png|body,YO,1,assets/cards/body/001.png|body,VI,4,assets/cards/body/001.png|body,BE,3,assets/cards/body/001.png|body,DO,2,assets/cards/body/001.png|body,GI,1,assets/cards/body/001.png|body,YE,5,assets/cards/body/001.png|body,RO,0,assets/cards/body/001.png|body,DU,1,assets/cards/body/001.png|eyes,ZO,5,assets/cards/eyes/001.png|eyes,QE,3,assets/cards/eyes/002.png|eyes,NE,5,assets/cards/eyes/003.png|eyes,ZE,1,assets/cards/eyes/004.png|eyes,DA,2,assets/cards/eyes/005.png|eyes,YA,4,assets/cards/eyes/006.png|eyes,KU,0,assets/cards/eyes/007.png|eyes,XO,3,assets/cards/eyes/008.png|eyes,VA,0,assets/cards/eyes/009.png|eyes,HE,1,assets/cards/eyes/010.png|eyes,JO,5,assets/cards/eyes/011.png|eyes,WE,1,assets/cards/eyes/012.png|eyes,WO,3,assets/cards/eyes/013.png|eyes,PU,5,assets/cards/eyes/014.png|eyes,CA,4,assets/cards/eyes/015.png|eyes,BU,4,assets/cards/eyes/016.png|eyes,SA,5,assets/cards/eyes/017.png|eyes,XA,5,assets/cards/eyes/018.png|eyes,PE,1,assets/cards/eyes/019.png|eyes,WI,4,assets/cards/eyes/020.png|nose,ZA,3,assets/cards/nose/001.png|nose,TO,3,assets/cards/nose/001.png|nose,HI,1,assets/cards/nose/001.png|nose,RA,5,assets/cards/nose/001.png|nose,NI,4,assets/cards/nose/001.png|nose,QI,2,assets/cards/nose/001.png|nose,LA,0,assets/cards/nose/001.png|nose,CO,4,assets/cards/nose/001.png|nose,CU,0,assets/cards/nose/001.png|nose,WA,1,assets/cards/nose/001.png|nose,SE,2,assets/cards/nose/001.png|nose,XE,3,assets/cards/nose/001.png|nose,YI,2,assets/cards/nose/001.png|nose,QO,0,assets/cards/nose/001.png|nose,GU,3,assets/cards/nose/001.png|nose,RI,2,assets/cards/nose/001.png|nose,ZU,1,assets/cards/nose/001.png|nose,TU,2,assets/cards/nose/001.png|nose,XU,0,assets/cards/nose/001.png|nose,MO,2,assets/cards/nose/001.png|mouth,LE,4,assets/cards/mouth/001.png|mouth,MI,2,assets/cards/mouth/001.png|mouth,JA,3,assets/cards/mouth/001.png|mouth,YU,0,assets/cards/mouth/001.png|mouth,NA,2,assets/cards/mouth/001.png|mouth,NO,3,assets/cards/mouth/001.png|mouth,FE,3,assets/cards/mouth/001.png|mouth,TI,0,assets/cards/mouth/001.png|mouth,XI,1,assets/cards/mouth/001.png|mouth,FU,3,assets/cards/mouth/001.png|mouth,LO,4,assets/cards/mouth/001.png|mouth,VO,3,assets/cards/mouth/001.png|mouth,RE,0,assets/cards/mouth/001.png|mouth,JE,1,assets/cards/mouth/001.png|mouth,BI,4,assets/cards/mouth/001.png|mouth,ME,3,assets/cards/mouth/001.png|mouth,SU,3,assets/cards/mouth/001.png|mouth,CI,0,assets/cards/mouth/001.png|mouth,SO,5,assets/cards/mouth/001.png|mouth,JI,3,assets/cards/mouth/001.png|complement,GA,0,assets/cards/complement/001.png|complement,BO,3,assets/cards/complement/001.png|complement,JU,4,assets/cards/complement/001.png|complement,WU,5,assets/cards/complement/001.png|complement,FA,1,assets/cards/complement/001.png|complement,KO,2,assets/cards/complement/001.png|complement,PA,5,assets/cards/complement/001.png|complement,LI,4,assets/cards/complement/001.png|complement,HU,3,assets/cards/complement/001.png|complement,BA,0,assets/cards/complement/001.png|complement,MU,4,assets/cards/complement/001.png|complement,RU,1,assets/cards/complement/001.png|complement,DI,4,assets/cards/complement/001.png|complement,HO,2,assets/cards/complement/001.png|complement,KI,1,assets/cards/complement/001.png|complement,FO,1,assets/cards/complement/001.png|complement,KA,0,assets/cards/complement/001.png|complement,QA,0,assets/cards/complement/001.png|complement,MA,3,assets/cards/complement/001.png|complement,VU,0,assets/cards/complement/001.png",
-            message: 'Hello Vue!',
+            batchCards: "body,SI,1,assets/cards/body/001.svg|body,GE,1,assets/cards/body/002.svg|body,NU,0,assets/cards/body/003.svg|body,HA,5,assets/cards/body/004.svg|body,TE,4,assets/cards/body/005.svg|body,TA,0,assets/cards/body/006.svg|body,LU,1,assets/cards/body/007.svg|body,ZI,3,assets/cards/body/008.svg|body,KE,4,assets/cards/body/009.svg|body,PO,2,assets/cards/body/010.svg|body,FI,5,assets/cards/body/011.svg|body,PI,3,assets/cards/body/012.svg|body,YO,1,assets/cards/body/013.svg|body,VI,4,assets/cards/body/014.svg|body,BE,3,assets/cards/body/015.svg|body,DO,2,assets/cards/body/016.svg|body,GI,1,assets/cards/body/017.svg|body,YE,5,assets/cards/body/018.svg|body,RO,0,assets/cards/body/019.svg|body,DU,1,assets/cards/body/020.svg|eyes,ZO,5,assets/cards/eyes/001.svg|eyes,CE,3,assets/cards/eyes/002.svg|eyes,NE,5,assets/cards/eyes/003.svg|eyes,ZE,1,assets/cards/eyes/004.svg|eyes,DA,2,assets/cards/eyes/005.svg|eyes,YA,4,assets/cards/eyes/006.svg|eyes,KU,0,assets/cards/eyes/007.svg|eyes,XO,3,assets/cards/eyes/008.svg|eyes,VA,0,assets/cards/eyes/009.svg|eyes,HE,1,assets/cards/eyes/010.svg|eyes,JO,5,assets/cards/eyes/011.svg|eyes,WE,1,assets/cards/eyes/012.svg|eyes,WO,3,assets/cards/eyes/013.svg|eyes,PU,5,assets/cards/eyes/014.svg|eyes,CA,4,assets/cards/eyes/015.svg|eyes,BU,4,assets/cards/eyes/016.svg|eyes,SA,5,assets/cards/eyes/017.svg|eyes,XA,5,assets/cards/eyes/018.svg|eyes,PE,1,assets/cards/eyes/019.svg|eyes,WI,4,assets/cards/eyes/020.svg|nose,ZA,3,assets/cards/nose/001.svg|nose,TO,3,assets/cards/nose/002.svg|nose,HI,1,assets/cards/nose/003.svg|nose,RA,5,assets/cards/nose/004.svg|nose,NI,4,assets/cards/nose/005.svg|nose,DE,2,assets/cards/nose/006.svg|nose,LA,0,assets/cards/nose/007.svg|nose,CO,4,assets/cards/nose/008.svg|nose,CU,0,assets/cards/nose/009.svg|nose,WA,1,assets/cards/nose/010.svg|nose,SE,2,assets/cards/nose/011.svg|nose,XE,3,assets/cards/nose/012.svg|nose,YI,2,assets/cards/nose/013.svg|nose,GO,0,assets/cards/nose/014.svg|nose,GU,3,assets/cards/nose/015.svg|nose,RI,2,assets/cards/nose/016.svg|nose,ZU,1,assets/cards/nose/017.svg|nose,TU,2,assets/cards/nose/018.svg|nose,XU,0,assets/cards/nose/019.svg|nose,MO,2,assets/cards/nose/020.svg|mouth,LE,4,assets/cards/mouth/001.svg|mouth,MI,2,assets/cards/mouth/002.svg|mouth,JA,3,assets/cards/mouth/003.svg|mouth,YU,0,assets/cards/mouth/004.svg|mouth,NA,2,assets/cards/mouth/005.svg|mouth,NO,3,assets/cards/mouth/006.svg|mouth,FE,3,assets/cards/mouth/007.svg|mouth,TI,0,assets/cards/mouth/008.svg|mouth,XI,1,assets/cards/mouth/009.svg|mouth,FU,3,assets/cards/mouth/010.svg|mouth,LO,4,assets/cards/mouth/011.svg|mouth,VO,3,assets/cards/mouth/012.svg|mouth,RE,0,assets/cards/mouth/013.svg|mouth,JE,1,assets/cards/mouth/014.svg|mouth,BI,4,assets/cards/mouth/015.svg|mouth,ME,3,assets/cards/mouth/016.svg|mouth,SU,3,assets/cards/mouth/017.svg|mouth,CI,0,assets/cards/mouth/018.svg|mouth,SO,5,assets/cards/mouth/019.svg|mouth,JI,3,assets/cards/mouth/020.svg|complement,GA,0,assets/cards/complement/001.svg|complement,BO,3,assets/cards/complement/002.svg|complement,JU,4,assets/cards/complement/003.svg|complement,WU,5,assets/cards/complement/004.svg|complement,FA,1,assets/cards/complement/005.svg|complement,KO,2,assets/cards/complement/006.svg|complement,PA,5,assets/cards/complement/007.svg|complement,LI,4,assets/cards/complement/008.svg|complement,HU,3,assets/cards/complement/009.svg|complement,BA,0,assets/cards/complement/010.svg|complement,MU,4,assets/cards/complement/011.svg|complement,RU,1,assets/cards/complement/012.svg|complement,DI,4,assets/cards/complement/013.svg|complement,HO,2,assets/cards/complement/014.svg|complement,KI,1,assets/cards/complement/015.svg|complement,FO,1,assets/cards/complement/016.svg|complement,KA,0,assets/cards/complement/017.svg|complement,VE,0,assets/cards/complement/018.svg|complement,MA,3,assets/cards/complement/019.svg|complement,VU,0,assets/cards/complement/020.svg",
             decks: {
                 body: [],
                 eyes: [],
@@ -108,13 +107,7 @@
                     newComplement: "New complement"
                 }
             },
-            currentHand: {
-                body: {},
-                eyes: {},
-                nose: {},
-                mouth: {},
-                complement: {}
-            }
+            currentHand: null
         },
         methods: {
             newCard: function (deck) {
@@ -123,7 +116,18 @@
             drawNewCards: function () {
                 this.initializeDecks();
                 var self = this;
-
+                if (this.currentHand === null) {
+                    this.currentHand = {
+                        body: {},
+                        eyes: {},
+                        nose: {},
+                        mouth: {},
+                        complement: {}
+                    };
+                    this.drawFullSet();
+                    setTimeout(self.revealAll, 500)
+                    return;
+                }
 
                 if (this.$refs.body.faceDown && this.$refs.eyes.faceDown && this.$refs.nose.faceDown &&
                     this.$refs.mouth.faceDown && this.$refs.complement.faceDown) {
@@ -149,6 +153,7 @@
                 this.$refs.complement.reveal()
             },
             facedownAll: function () {
+
                 this.$refs.body.facedown()
                 this.$refs.eyes.facedown()
                 this.$refs.nose.facedown()

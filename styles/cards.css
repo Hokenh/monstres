@@ -54,7 +54,6 @@
 .monstercard {
     width: 100%;
     padding-top: 156%;
-    background: white;
     user-select: none;
     cursor: pointer;
 }
@@ -152,6 +151,7 @@
 .front,
 .back {
     border-radius: 1.5rem;
+
     box-shadow: 0 1px 6px 0;
     position: absolute;
     width: 100%;
@@ -162,6 +162,7 @@
 }
 
 .front {
+    background: white;
     text-align: middle;
     overflow: hidden;
 }

@@ -2,3 +2,9 @@
     width: 80%;
     margin: 30px auto;
 }
+
+body {
+    background: url(../assets/backgrounds/wood2.jpg) center no-repeat;
+    background-size: cover;
+    height: 100%;
+}
