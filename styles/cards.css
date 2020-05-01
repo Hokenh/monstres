@@ -3,33 +3,8 @@
     perspective: 500px;
 }
 
-/* .monstercard-container:hover .monstercard, */
-.monstercard-container .monstercard.monstercard--face-down {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
-
-
-.monstercard {
-    -webkit-transition: -webkit-transform 0.7s;
-    transition: transform 0.7s;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
-
-.front,
-.back {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.back {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
-
-/*Custom Styles*/
 .monstercards-container {
+    width: 100%;
     display: -webkit-flex;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -45,19 +20,18 @@
     justify-content: center;
 }
 
-.monstercards-container {
-    width: 100%;
+.monstercards-container.monstercards-container-5-monstercards .monstercard-container {
+    width: 17%;
+    margin: 1.5%;
 }
 
-.monstercard {
-    width: 100%;
-    padding-top: 156%;
-    user-select: none;
-    cursor: pointer;
+.monstercard-container .monstercard.monstercard--face-down {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .deck-title {
-    font-size: 2vw;
+    font-size: 1vw;
     color: black;
     border: 2px dashed black;
     background: white;
@@ -65,57 +39,102 @@
     font-weight: 600;
     text-align: center;
     margin-bottom: 1vw;
+    cursor: pointer;
 }
 
-.monstercard .inner {
-    border: 1px solid black;
+.monstercard {
+    width: 100%;
+    padding-top: 156%;
+    user-select: none;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform 0.7s;
+    transition: transform 0.7s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.monstercard .front,
+.monstercard .back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1.5vw;
+    box-shadow: 0 1px 6px 0;
     position: absolute;
-    border-radius: 1vw;
-    left: 1vw;
-    right: 1vw;
-    top: 1vw;
-    bottom: 1vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    text-align: center;
     overflow: hidden;
 }
 
-.monstercard .inner img {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.monstercard .back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    background: url(cards/backs/01.svg) center;
+    background-size: cover;
+}
+
+.monstercard .inner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 20%;
+    gap: 0px 0px;
+    grid-template-areas: "."".";
+}
+
+@media all and (-ms-high-contrast: none) {
+    .monstercard .inner-grid {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr;
+        -ms-grid-rows: 80% 20%;
+    }
+}
+
+.monstercard.nose .inner-grid {
+    background: lightgreen;
+}
+
+.monstercard.mouth .inner-grid {
+    background: lightgoldenrodyellow;
+}
+
+.monstercard.body .inner-grid {
+    background: indianred;
+}
+
+.monstercard.eyes .inner-grid {
+    background: coral;
+}
+
+.monstercard.complement .inner-grid {
+    background: lightskyblue;
+}
+
+.monstercard .inner-grid img {
+    max-width: 90%;
+    user-select: none;
+    display: inline;
 }
 
 .monstercard .syllabe {
-    position: absolute;
-    font-family: 'Nunito', sans-serif;
-    bottom: -1%;
+    font-family: "Nunito", sans-serif;
     border-top: 2px dashed black;
-    border-bottom: 2px dashed black;
     width: 100%;
-    padding: 0.5vw;
     font-weight: 700;
     font-size: 1.5vw;
     background: white;
     z-index: 9;
-    background-size: 10px 10px;
-    background-position: -3;
-    background-image:
-        linear-gradient(to right, rgba(0, 255, 255, 0.507) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 255, 255, 0.507) 1px, transparent 1px);
+    background-size: 0.5vw 0.5vw;
+    background-image: linear-gradient(to right,
+            rgba(0, 255, 255, 0.3) 1px,
+            transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 255, 0.3) 1px, transparent 1px);
 }
 
 .monstercard .power {
     display: inline-block;
     position: absolute;
-    font-family: 'Arial',
-        sans-serif;
+    font-family: "Arial", sans-serif;
     margin: 0.5vw;
     padding: 2%;
     width: 2vw;
@@ -128,58 +147,4 @@
     color: white;
     background: black;
     z-index: 10;
-}
-
-.monstercard.nose .inner {
-    background: lightgreen;
-}
-
-.monstercard.mouth .inner {
-    background: lightgoldenrodyellow;
-}
-
-.monstercard.body .inner {
-    background: indianred;
-}
-
-.monstercard.eyes .inner {
-    background: coral;
-}
-
-
-.monstercard.complement .inner {
-    background: lightskyblue;
-}
-
-
-.monstercards-container.monstercards-container-5-monstercards .monstercard-container {
-    width: 17%;
-    margin: 1.5%;
-}
-
-.front,
-.back {
-    border-radius: 1.5vw;
-    box-shadow: 0 1px 6px 0;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    text-align: center;
-    overflow: hidden;
-}
-
-.front {
-    background: white;
-    text-align: middle;
-    overflow: hidden;
-}
-
-.back {
-    background: url(cards/backs/01.svg) center;
-    background-size: cover;
-}
-
-img {
-    display: block;
 }

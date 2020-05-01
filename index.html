@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"
         integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
     <script src="scripts/card.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <!-- <script src="scripts/decks.js"></script> -->
@@ -34,212 +35,19 @@
                 </div>
             </div>
             <button class="button is-primary" @click="drawNewCards">{{i18n[selectedLanguage].drawNewCards}}</button>
-
             <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
-                <monster-card ref="body" v-bind:deckname='i18n[selectedLanguage].body'
-                    v-bind:cardname='currentHand.body.cardname' v-bind:power='currentHand.body.power'
-                    v-bind:syllabe='currentHand.body.syllabe' v-bind:deck='currentHand.body.deck'
-                    v-bind:image='currentHand.body.image' v-bind:newcardliteral="i18n[selectedLanguage].newBody"
-                    v-on:request-new-card='newCard("body")'>
+                <monster-card v-for="deckType in deckTypes" :key="deckType" :ref="deckType"
+                    v-bind:deckname='i18n[selectedLanguage][deckType]' v-bind:cardname='currentHand[deckType].cardname'
+                    v-bind:power='currentHand[deckType].power' v-bind:syllabe='currentHand[deckType].syllabe'
+                    v-bind:deck='currentHand[deckType].deck' v-bind:image='currentHand[deckType].image'
+                    v-on:request-new-card='newCard(deckType)'
+                    v-bind:newcardliteral="i18n[selectedLanguage].newCard[deckType]">
                 </monster-card>
-                <monster-card ref="eyes" v-bind:deckname='i18n[selectedLanguage].eyes'
-                    v-bind:cardname='currentHand.eyes.cardname' v-bind:power='currentHand.eyes.power'
-                    v-bind:syllabe='currentHand.eyes.syllabe' v-bind:deck='currentHand.eyes.deck'
-                    v-bind:image='currentHand.eyes.image' v-bind:newcardliteral="i18n[selectedLanguage].newEyes"
-                    v-on:request-new-card='newCard("eyes")'>
-                </monster-card>
-                <monster-card ref="nose" v-bind:deckname='i18n[selectedLanguage].nose'
-                    v-bind:cardname='currentHand.nose.cardname' v-bind:power='currentHand.nose.power'
-                    v-bind:syllabe='currentHand.nose.syllabe' v-bind:deck='currentHand.nose.deck'
-                    v-bind:image='currentHand.nose.image' v-bind:newcardliteral="i18n[selectedLanguage].newNose"
-                    v-on:request-new-card='newCard("nose")'>
-                </monster-card>
-                <monster-card ref="mouth" v-bind:deckname='i18n[selectedLanguage].mouth'
-                    v-bind:cardname='currentHand.mouth.cardname' v-bind:power='currentHand.mouth.power'
-                    v-bind:syllabe='currentHand.mouth.syllabe' v-bind:deck='currentHand.mouth.deck'
-                    v-bind:image='currentHand.mouth.image' v-bind:newcardliteral="i18n[selectedLanguage].newMouth"
-                    v-on:request-new-card='newCard("mouth")'>
-                </monster-card>
-                <monster-card ref="complement" v-bind:deckname='i18n[selectedLanguage].complement'
-                    v-bind:cardname='currentHand.complement.cardname' v-bind:power='currentHand.complement.power'
-                    v-bind:syllabe='currentHand.complement.syllabe' v-bind:deck='currentHand.complement.deck'
-                    v-bind:image='currentHand.complement.image'
-                    v-bind:newcardliteral="i18n[selectedLanguage].newComplement"
-                    v-on:request-new-card='newCard("complement")'>
-                </monster-card>
-
             </div>
         </div>
     </div>
     </div>
 </body>
-<script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            batchCards: "body,SI,1,assets/cards/body/001.svg|body,GE,1,assets/cards/body/002.svg|body,NU,0,assets/cards/body/003.svg|body,HA,5,assets/cards/body/004.svg|body,TE,4,assets/cards/body/005.svg|body,TA,0,assets/cards/body/006.svg|body,LU,1,assets/cards/body/007.svg|body,ZI,3,assets/cards/body/008.svg|body,KE,4,assets/cards/body/009.svg|body,PO,2,assets/cards/body/010.svg|body,FI,5,assets/cards/body/011.svg|body,PI,3,assets/cards/body/012.svg|body,YO,1,assets/cards/body/013.svg|body,VI,4,assets/cards/body/014.svg|body,BE,3,assets/cards/body/015.svg|body,DO,2,assets/cards/body/016.svg|body,GI,1,assets/cards/body/017.svg|body,YE,5,assets/cards/body/018.svg|body,RO,0,assets/cards/body/019.svg|body,DU,1,assets/cards/body/020.svg|eyes,ZO,5,assets/cards/eyes/001.svg|eyes,CE,3,assets/cards/eyes/002.svg|eyes,NE,5,assets/cards/eyes/003.svg|eyes,ZE,1,assets/cards/eyes/004.svg|eyes,DA,2,assets/cards/eyes/005.svg|eyes,YA,4,assets/cards/eyes/006.svg|eyes,KU,0,assets/cards/eyes/007.svg|eyes,XO,3,assets/cards/eyes/008.svg|eyes,VA,0,assets/cards/eyes/009.svg|eyes,HE,1,assets/cards/eyes/010.svg|eyes,JO,5,assets/cards/eyes/011.svg|eyes,WE,1,assets/cards/eyes/012.svg|eyes,WO,3,assets/cards/eyes/013.svg|eyes,PU,5,assets/cards/eyes/014.svg|eyes,CA,4,assets/cards/eyes/015.svg|eyes,BU,4,assets/cards/eyes/016.svg|eyes,SA,5,assets/cards/eyes/017.svg|eyes,XA,5,assets/cards/eyes/018.svg|eyes,PE,1,assets/cards/eyes/019.svg|eyes,WI,4,assets/cards/eyes/020.svg|nose,ZA,3,assets/cards/nose/001.svg|nose,TO,3,assets/cards/nose/002.svg|nose,HI,1,assets/cards/nose/003.svg|nose,RA,5,assets/cards/nose/004.svg|nose,NI,4,assets/cards/nose/005.svg|nose,DE,2,assets/cards/nose/006.svg|nose,LA,0,assets/cards/nose/007.svg|nose,CO,4,assets/cards/nose/008.svg|nose,CU,0,assets/cards/nose/009.svg|nose,WA,1,assets/cards/nose/010.svg|nose,SE,2,assets/cards/nose/011.svg|nose,XE,3,assets/cards/nose/012.svg|nose,YI,2,assets/cards/nose/013.svg|nose,GO,0,assets/cards/nose/014.svg|nose,GU,3,assets/cards/nose/015.svg|nose,RI,2,assets/cards/nose/016.svg|nose,ZU,1,assets/cards/nose/017.svg|nose,TU,2,assets/cards/nose/018.svg|nose,XU,0,assets/cards/nose/019.svg|nose,MO,2,assets/cards/nose/020.svg|mouth,LE,4,assets/cards/mouth/001.svg|mouth,MI,2,assets/cards/mouth/002.svg|mouth,JA,3,assets/cards/mouth/003.svg|mouth,YU,0,assets/cards/mouth/004.svg|mouth,NA,2,assets/cards/mouth/005.svg|mouth,NO,3,assets/cards/mouth/006.svg|mouth,FE,3,assets/cards/mouth/007.svg|mouth,TI,0,assets/cards/mouth/008.svg|mouth,XI,1,assets/cards/mouth/009.svg|mouth,FU,3,assets/cards/mouth/010.svg|mouth,LO,4,assets/cards/mouth/011.svg|mouth,VO,3,assets/cards/mouth/012.svg|mouth,RE,0,assets/cards/mouth/013.svg|mouth,JE,1,assets/cards/mouth/014.svg|mouth,BI,4,assets/cards/mouth/015.svg|mouth,ME,3,assets/cards/mouth/016.svg|mouth,SU,3,assets/cards/mouth/017.svg|mouth,CI,0,assets/cards/mouth/018.svg|mouth,SO,5,assets/cards/mouth/019.svg|mouth,JI,3,assets/cards/mouth/020.svg|complement,GA,0,assets/cards/complement/001.svg|complement,BO,3,assets/cards/complement/002.svg|complement,JU,4,assets/cards/complement/003.svg|complement,WU,5,assets/cards/complement/004.svg|complement,FA,1,assets/cards/complement/005.svg|complement,KO,2,assets/cards/complement/006.svg|complement,PA,5,assets/cards/complement/007.svg|complement,LI,4,assets/cards/complement/008.svg|complement,HU,3,assets/cards/complement/009.svg|complement,BA,0,assets/cards/complement/010.svg|complement,MU,4,assets/cards/complement/011.svg|complement,RU,1,assets/cards/complement/012.svg|complement,DI,4,assets/cards/complement/013.svg|complement,HO,2,assets/cards/complement/014.svg|complement,KI,1,assets/cards/complement/015.svg|complement,FO,1,assets/cards/complement/016.svg|complement,KA,0,assets/cards/complement/017.svg|complement,VE,0,assets/cards/complement/018.svg|complement,MA,3,assets/cards/complement/019.svg|complement,VU,0,assets/cards/complement/020.svg",
-            decks: {
-                body: [],
-                eyes: [],
-                nose: [],
-                mouth: [],
-                complement: []
-            },
-            selectedLanguage: "ca",
-            i18n: {
-                "ca": {
-                    body: "Cos",
-                    eyes: "Ulls",
-                    nose: "Nas",
-                    mouth: "Boca",
-                    complement: "Complement",
-                    drawNewCards: "Reparteix cartes",
-                    newBody: "Nou cos",
-                    newEyes: "Nous ulls",
-                    newNose: "Nou nas",
-                    newMouth: "Nova boca",
-                    newComplement: "Nou complement"
-                },
-                "es": {
-                    body: "Cuerpo",
-                    eyes: "Ojos",
-                    nose: "Nariz",
-                    mouth: "Boca",
-                    complement: "Complemento",
-                    drawNewCards: "Reparte cartas",
-                    newBody: "Nuevo cuerpo",
-                    newEyes: "Nuevos ojos",
-                    newNose: "Nueva nariz",
-                    newMouth: "Nueva boca",
-                    newComplement: "Nuevo complemento"
-                },
-                "en": {
-                    body: "Body",
-                    eyes: "Eyes",
-                    nose: "Nose",
-                    mouth: "Mouth",
-                    complement: "Complement",
-                    drawNewCards: "Draw cards",
-                    newBody: "New body",
-                    newEyes: "New eyes",
-                    newNose: "New nose",
-                    newMouth: "New mouth",
-                    newComplement: "New complement"
-                }
-            },
-            currentHand: null
-        },
-        methods: {
-            newCard: function (deck) {
-                this.drawNewCard(deck, this.currentHand[deck]);
-            },
-            drawNewCards: function () {
-                this.initializeDecks();
-                var self = this;
-                if (this.currentHand === null) {
-                    this.currentHand = {
-                        body: {},
-                        eyes: {},
-                        nose: {},
-                        mouth: {},
-                        complement: {}
-                    };
-                    this.drawFullSet();
-                    setTimeout(self.revealAll, 500)
-                    return;
-                }
-
-                if (this.$refs.body.faceDown && this.$refs.eyes.faceDown && this.$refs.nose.faceDown &&
-                    this.$refs.mouth.faceDown && this.$refs.complement.faceDown) {
-                    this.drawFullSet()
-                    this.revealAll()
-                } else {
-                    this.facedownAll()
-
-                    setTimeout(() => {
-                        this.drawFullSet();
-                    }, 900);
-                    setTimeout(self.revealAll, 1000)
-                }
-
-
-
-            },
-            revealAll: function () {
-                this.$refs.body.reveal()
-                this.$refs.eyes.reveal()
-                this.$refs.nose.reveal()
-                this.$refs.mouth.reveal()
-                this.$refs.complement.reveal()
-            },
-            facedownAll: function () {
-
-                this.$refs.body.facedown()
-                this.$refs.eyes.facedown()
-                this.$refs.nose.facedown()
-                this.$refs.mouth.facedown()
-                this.$refs.complement.facedown()
-            },
-            drawNewCard: function (deck, currentCard) {
-                function randomFromArray(arr) {
-                    return arr[Math.floor(Math.random() * arr.length)];
-                }
-                if (this.$refs[deck]) {
-                    this.$refs[deck].facedown()
-                }
-
-                setTimeout(() => {
-                    var self = this;
-
-                    if (!currentCard) {
-                        this.currentHand[deck] = randomFromArray(this.decks[deck]);
-                        if (self.$refs[deck]) {
-                            setTimeout(self.$refs[deck].reveal, 500)
-                        }
-                        return;
-                    }
-
-                    var drawCard = currentCard;
-                    while (drawCard.cardname === currentCard.cardname) {
-                        drawCard = randomFromArray(this.decks[deck]);
-                    }
-                    this.currentHand[deck] = drawCard;
-                    setTimeout(self.$refs[deck].reveal, 500);
-                }, 500);
-
-            },
-            drawFullSet: function () {
-                this.drawNewCard("body");
-                this.drawNewCard("eyes");
-                this.drawNewCard("nose");
-                this.drawNewCard("mouth");
-                this.drawNewCard("complement");
-
-            },
-            initializeDecks: function () {
-                var availableCards = this.batchCards.split('|');
-                (availableCards).forEach(element => this.addCard(element));
-            },
-            addCard: function (card) {
-                var elements = card.split(',');
-                if (elements.length < 4) {
-                    return;
-                }
-                var appendToDeck = this.decks.body;
-                if (!this.decks.hasOwnProperty(elements[0])) {
-                    this.decks[elements[0]] = [];
-                }
-                this.decks[elements[0]].unshift({
-                    cardname: card,
-                    deck: elements[0],
-                    syllabe: elements[1],
-                    power: elements[2],
-                    image: elements[3]
-                })
-            }
-        },
-
-    });
-</script>
+<script src="scripts/game.js"></script>
 
 </html>
