@@ -184,16 +184,29 @@
                 function randomFromArray(arr) {
                     return arr[Math.floor(Math.random() * arr.length)];
                 }
-                if (!currentCard) {
-                    this.currentHand[deck] = randomFromArray(this.decks[deck]);
-                    return;
+                if (this.$refs[deck]) {
+                    this.$refs[deck].facedown()
                 }
 
-                var drawCard = currentCard;
-                while (drawCard.cardname === currentCard.cardname) {
-                    drawCard = randomFromArray(this.decks[deck]);
-                }
-                this.currentHand[deck] = drawCard;
+                setTimeout(() => {
+                    var self = this;
+
+                    if (!currentCard) {
+                        this.currentHand[deck] = randomFromArray(this.decks[deck]);
+                        if (self.$refs[deck]) {
+                            setTimeout(self.$refs[deck].reveal, 500)
+                        }
+                        return;
+                    }
+
+                    var drawCard = currentCard;
+                    while (drawCard.cardname === currentCard.cardname) {
+                        drawCard = randomFromArray(this.decks[deck]);
+                    }
+                    this.currentHand[deck] = drawCard;
+                    setTimeout(self.$refs[deck].reveal, 500);
+                }, 500);
+
             },
             drawFullSet: function () {
                 this.drawNewCard("body");
