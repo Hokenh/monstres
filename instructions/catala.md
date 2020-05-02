@@ -51,3 +51,5 @@ Hem preparat una pila de cartes per que surtin un fotimer de monstres diferents 
 Alhora, ens agradaria conèixer els monstres que dibuixeu amb aquest joc: si voleu podeu enviar-nos les vostres creacions i ho compartirem aquí. Ens agradaria que ens enviéssiu el monstre, amb el seu nom i un el nom del nen que el dibuixa, la ciutat i el país, per que així la resta de nens vegin els monstres en ulls d&#39;altres nens.
 
 Podeu enviar monstres i suggeriments a [molts.monstres@gmail.com](mailto:molts.monstres@gmail.com)
+
+![Dibuix de SIPENISOHO](https://hokenh.github.io/monstres/assets/monsters/sipenisoho.jpg "SIPENISOHO")

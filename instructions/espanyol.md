@@ -1,53 +1,55 @@
-**Introducció**
+**Introducción**
 
-Hola em dic Sipenisoho i soc un monstre que va a l&#39;Escola dels Monstres. El meus companys s&#39;han amagat per tota l&#39;escola i els haurem de trobar. Per trobar-los primer he de saber com són i necessito que m&#39;ajudis a fer un dibuix de cadascun per a que els pugui reconèixer. Jo només sé coses d&#39;ells com quina forma tenen, els seus ulls, el seu nas, però no sé quina pinta fan.
+Hola me llamo Sipenisoho y soy un monstruo que va a la escuela de Monstruos. Mis colegas se han escondido por toda la escuela y tendremos que encontrarlos. Para encontrarlos primero tengo que saber cómo son y necesito que me ayudes a dibujar un dibujo de cada uno para que pueda reconocerlos. Sólo sé cosas sobre ellos como qué forma tienen, sus ojos, su nariz, pero no sé qué pinta tienen.
 
-**Com jugar**
+**Cómo jugar**
 
-Necessites un paper tan gran com vulguis, un llapis amb punxa i alguns llapis de colors, ceres o retoladors per pintar.
+Necesitas un papel tan grande como quieras, un lápiz y algunos lápices de colores, cera o rotuladores para pintar.
 
-Amb aquest joc podràs crear una pila de monstres diferents.
+Con este juego se puede crear un montón de monstruos diferentes.
 
-Per fer-los tens cinc tipus de cartes diferents:
+Hay cinco tipos diferentes de cartas:
 
-- Cos
-- Ulls
-- Nas
+- Cuerpo
+- Ojos
+- Nariz
 - Boca
-- I una part complement; des de un barret fins a una cua de dimoni
+- Y una parte complemento; desde un sombrero a una cola de demonio
 
-A cada carta hi pots veure una part del cos, una síl·laba i un número.
+En cada carta se puede ver una parte del cuerpo, una sílaba y un número.
 
-Que com comencem tot això? Doncs molt senzill. Pitja el botó &quot;Reparteix cartes&quot; i et donaré 5 cartes una de cada tipus; cos, ulls, nas, boca i complement. A sobre de cada carta et dic quina part del monstre és. Si per qualsevol motiu vols canviar una carta, pitja el boto lila a sota de la carta per canviar-la.
+¿Qué cómo empezamos todo esto? Muy fácil. Pulse el botón &quot;Reparte cartas&quot; y te daré 5 cartas, uno de cada tipo; Cuerpo, ojos, nariz, boca y complemento. Además de cada carta te digo qué parte del monstruo es. Si por alguna razón deseas cambiar una carta, presione el botón purpura debajo de la carta para cambiarla.
 
-**El Monstre**
+**El Monstruo**
 
-Ara toca dibuixar! Agafa el paper i el llapis i comença a dibuixar. Pots començar per la part del cos que vulguis, tot i que una bona forma de començar a dibuixar es dibuixant el cos gran, molt gran, per després fer-hi totes les parts del monstre dins del cos i continuar en l&#39;ordre en el que estan les cartes; ulls, nas, boca i complement. Et pots limitar a les cartes que t&#39;he repartit o dibuixar el monstre com tu vulguis pots fer més gran el cos, una part, posar-hi peus, mans, més ulls, més boques, el que tu t&#39;agradi i faci més feliç al teu monstre.
+¡Ahora es el momento de dibujar! Coge el papel y el lápiz y comienza a dibujar. Puedes empezar con la parte del cuerpo que quieras, aunque una buena forma de empezar a dibujar es dibujando el cuerpo grande, muy grande, para luego hacer todas las partes del monstruo dentro del cuerpo y continuar en el orden en que están las cartas; Ojos, nariz, boca y complemento. Puedes limitarte a las cartas que se han repartido o dibujar al monstruo como quieras, puedes hacer que el cuerpo sea más grande, o solo una parte, dibujarle pies, manos, tentáculos, más ojos, más bocas, lo que te guste y hacer que tu monstruo sea más feliz o más terrorífico.
 
-**El seu nom**
+**Su nombre**
 
-Un cop hagis acabat de dibuixar i pintar el monstre amb els colors, li has de donar un nom: pots fer-ho de dues formes; el pots fer ajuntant totes les síl·labes de les cartes, en l&#39;ordre que t&#39;agradi o donar-li tu el nom que vulguis, que per això es el teu monstre. Un cop hagis decidit el nom del monstre, escriu el nom al dibuix del monstre.
+Una vez que hayas terminado de dibujar y pintar al monstruo con los colores, tienes que darle un nombre i puedes hacerlo de dos maneras; uniendo todas las sílabas de las cartas, en el orden que te guste, o darte el nombre que quieras. Recuerda que es tu monstruo. Una vez que hayas decidido el nombre del monstruo, escriba el nombre en el dibujo del monstruo.
 
-**El monstre més fort**
+**El monstruo más fuerte**
 
-Falta saber, com de fort es el nostre monstre. A cada carta hi ha un numero dins d&#39;un cercle negre. Suma tots els números per saber la força del teu monstre i anota el resultat al dibuix.
+Necesitas saber, que tan fuerte es nuestro monstruo. En cada carta hay un número dentro de un círculo negro. Suma todos los números para saber la fuerza de tu monstruo y anotar el resultado al dibujo.
 
-**I ara que?**
+**¿Y ahora qué?**
 
-Doncs com ja hem acabat el nostre monstre, ara podem seguir buscant més monstres que l&#39;escola dels monstres es molt gran i hi ha un fotimer d&#39;alumnes
+Como ya hemos terminado nuestro monstruo ahora podemos seguir buscando más monstruos que la escuela de los monstruos es muy grande y hay un montón de estudiantes.
 
-Doncs ara, podeu amagar-lo on sigueu i jugar als detectius i buscar-lo. Ho podeu fer sense dir res o donant pistes Fred, fred, calent, calent!
+O bien puedes esconder a tu nuevo monstruo en el lugar que te encuentres para jugar a los detectives y buscarlo. Puedes hacerlo sin decir nada ni dar pistas ¡Frío, frío, caliente, caliente!
 
-Podeu tornat a repartir-vos cartes i dibuixar un altre monstre, aquí teniu algunes idees:
+Puedes repartirte nuevas cartas y dibujar un nuevo monstruo, aquí algunas ideas de dibujo:
 
-- Un altre company, repartiu-vos una mà de noves cartes.
-- El pare o la mare del vostre monstre. Feu el monstre més gran i li canvieu alguna part del cos.
-- Podeu fer el germà o el cosí del vostre monstre canviant una part del cos.
-- Podeu fer la vostre família en versió monstre. Agafeu alguna cosa característica de la vostra família i incorporeu-la al dibuix.
-- Podeu fer un monstre per qui vulgueu i regalar-li.
+- Otro compañero, reparte nuevas cartas.
+- El padre o la madre de tu monstruo. Haz que el monstruo sea más grande y cambia cualquier parte del cuerpo.
+- Puedes hacer que el hermano o primo de tu monstruo, substituye una parte del cuerpo.
+- Puedes hacer tu familia en versión monstruo. Coge algo característico de tu familia e incorpóralo al dibujo.
+- Puedes hacer un monstruo para quien quieras y dárselo.
 
-Hem preparat una pila de cartes per que surtin un fotimer de monstres diferents i creiem que encara podem tenir més boques, més ulls, més de tot així que si vols pots suggerir-nos noves cartes.
+Hemos preparado un montón de cartas para que dibujes un montón de monstruos diferentes y creemos que todavía podemos muchas más cartas diferentes: más bocas, más ojos, más de todo para que la escuela de monstruos siga creciendo en diversidad. Si lo deseas puedas sugerirnos nuevas cartas.
 
-Alhora, ens agradaria conèixer els monstres que dibuixeu amb aquest joc: si voleu podeu enviar-nos les vostres creacions i ho compartirem aquí. Ens agradaria que ens enviéssiu el monstre, amb el seu nom i un el nom del nen que el dibuixa, la ciutat i el país, per que així la resta de nens vegin els monstres en ulls d&#39;altres nens.
+Al mismo tiempo nos gustaría conocer los monstruos que dibujas con este juego: si quieres puedes enviarnos tus creaciones y las compartiremos aquí. Nos gustaría que nos enviaras el monstruo, con su nombre, su fuerza y el nombre del niño que lo dibuja, la ciudad y el país, para que el resto de los niños vean a los monstruos a los ojos de otros niños. No queremos ningún tipo de dato personal i no usaremos el correo electrónico para nada.
 
-Podeu enviar monstres i suggeriments a [molts.monstres@gmail.com](mailto:molts.monstres@gmail.com)
+Puedes enviar monstruos y sugerencias a [molts.monstres@gmail.com](mailto:molts.monstres@gmail.com)
+
+![Dibujo de SIPENISOHO](https://hokenh.github.io/monstres/assets/monsters/sipenisoho.jpg "SIPENISOHO")
