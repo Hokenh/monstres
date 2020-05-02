@@ -19,18 +19,58 @@
 
 <body class="bg">
     <div id="app">
-        <div class="main-container">
-            <div class="is-right">
-                <div class="buttons has-addons is-right">
-                    <button class="button" :class="{'is-success': selectedLanguage == 'ca'}"
-                        @click="selectedLanguage='ca'">Català</button>
-                    <button class="button" :class="{'is-success': selectedLanguage == 'es'}"
-                        @click="selectedLanguage='es'">Español</button>
-                    <button class="button" :class="{'is-success': selectedLanguage == 'en'}"
-                        @click="selectedLanguage='en'">English</button>
+
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://hokenh.github.io/monstres">
+                    <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
+                </a>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" @click="handDeal" v-html="i18n[selectedLanguage].dealHand"></a>
+
+                    <a class="navbar-item" target="_blank" :href="instructionslink"
+                        v-html="i18n[selectedLanguage].instructions">
+                        Documentation
+                    </a>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons has-addons">
+                            <button class="button" :class="{'is-success': selectedLanguage == 'ca'}"
+                                @click="selectedLanguage='ca'">Català</button>
+                            <button class="button" :class="{'is-success': selectedLanguage == 'es'}"
+                                @click="selectedLanguage='es'">Español</button>
+                            <button class="button" :class="{'is-success': selectedLanguage == 'en'}"
+                                @click="selectedLanguage='en'">English</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button class="button is-primary" @click="handDeal" v-html="i18n[selectedLanguage].dealHand"></button>
+        </nav>
+
+        <div class="main-container">
+            <div>
+                <div class="buttons is-left">
+
+                </div>
+
+                <div class="buttons has-addons is-right">
+
+                </div>
+            </div>
+
+
             <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
                 <monster-card v-for="deckType in deckTypes" :key="deckType" :ref="deckType"
                     v-bind:deckname='i18n[selectedLanguage][deckType]' v-bind:cardname='currentHand[deckType].cardname'
@@ -40,7 +80,7 @@
                     v-bind:newcardliteral="i18n[selectedLanguage].newCard[deckType]">
                 </monster-card>
             </div>
-            <div><a class="button is-info" :href="instructionslink" v-html="i18n[selectedLanguage].instructions"></a>
+            <div>
             </div>
         </div>
     </div>

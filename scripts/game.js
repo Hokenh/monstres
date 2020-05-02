@@ -46,7 +46,7 @@
                     nose: "Nose",
                     mouth: "Mouth",
                     complement: "Complement",
-                    dealHand: "Draw cards",
+                    dealHand: "Deal cards",
                     instructions: "How to play?",
                     newCard: {
                         body: "New body",
@@ -146,11 +146,11 @@
                 }
             },
             cardGetAnother: function (deck, currentCard) {
-                var drawCard = currentCard;
-                while (drawCard.cardname === currentCard.cardname) {
-                    drawCard = this.fn.randomFromArray(this.decks[deck]);
+                var dealtCard = currentCard;
+                while (dealtCard.cardname === currentCard.cardname) {
+                    dealtCard = this.fn.randomFromArray(this.decks[deck]);
                 }
-                return drawCard;
+                return dealtCard;
             },
             cardAdd: function (card) {
                 var elements = card.split(',');
