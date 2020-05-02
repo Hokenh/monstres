@@ -30,7 +30,7 @@ Una vez que hayas terminado de dibujar y pintar al monstruo con los colores, tie
 
 **El monstruo más fuerte**
 
-Necesitas saber, que tan fuerte es nuestro monstruo. En cada carta hay un número dentro de un círculo negro. Suma todos los números para saber la fuerza de tu monstruo y anotar el resultado al dibujo.
+Necesitas saber que tan fuerte es nuestro monstruo. En cada carta hay un número dentro de un círculo negro. Suma todos los números para saber la fuerza de tu monstruo y anotar el resultado al dibujo.
 
 **¿Y ahora qué?**
 

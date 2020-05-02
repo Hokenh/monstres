@@ -132,6 +132,10 @@
                     }
                     this.currentHand[deck] = this.cardGetAnother(deck, currentCard);
                     this.handToHash();
+                    gtag('event', "new", {
+                        'event_category': "card",
+                        'event_label': deck
+                    });
                     setTimeout(this.$refs[deck][0].reveal, 500);
                 }, 500);
             },
@@ -187,7 +191,13 @@
                     });
 
                     setTimeout(this.handReveal, 500)
-                    setTimeout(this.handToHash, 1000);
+                    setTimeout(() => {
+                        this.handToHash;
+                        gtag('event', "new", {
+                            'event_category': "hand",
+                            'event_label': deck
+                        });
+                    }, 1000);
                 }, 500);
             },
             handFacedown: function () {
