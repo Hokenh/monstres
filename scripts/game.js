@@ -14,12 +14,7 @@
                     nose: "Nas",
                     mouth: "Boca",
                     complement: "Complement",
-                    drawNewCards: "Reparteix cartes",
-                    newBody: "Nou cos",
-                    newEyes: "Nous ulls",
-                    newNose: "Nou nas",
-                    newMouth: "Nova boca",
-                    newComplement: "Nou complement",
+                    dealHand: "Reparteix cartes",
                     newCard: {
                         body: "Nou cos",
                         eyes: "Nous ulls",
@@ -34,12 +29,7 @@
                     nose: "Nariz",
                     mouth: "Boca",
                     complement: "Complemento",
-                    drawNewCards: "Reparte cartas",
-                    newBody: "Nuevo cuerpo",
-                    newEyes: "Nuevos ojos",
-                    newNose: "Nueva nariz",
-                    newMouth: "Nueva boca",
-                    newComplement: "Nuevo complemento",
+                    dealHand: "Reparte cartas",
                     newCard: {
                         body: "Nuevo cuerpo",
                         eyes: "Nuevos ojos",
@@ -54,12 +44,7 @@
                     nose: "Nose",
                     mouth: "Mouth",
                     complement: "Complement",
-                    drawNewCards: "Draw cards",
-                    newBody: "New body",
-                    newEyes: "New eyes",
-                    newNose: "New nose",
-                    newMouth: "New mouth",
-                    newComplement: "New complement",
+                    dealHand: "Draw cards",
                     newCard: {
                         body: "New body",
                         eyes: "New eyes",
@@ -95,60 +80,31 @@
                 };
 
                 this.deckTypes.forEach((element, idx) => {
-                    var card = this.getCardFromDeck(element, parts[idx]);
+                    var card = this.cardGet(element, parts[idx]);
                     this.currentHand[element] = card;
                 });
 
-                setTimeout(this.revealAll, 1000)
+                setTimeout(this.handReveal, 1000)
             }
         },
         methods: {
-            newCard: function (deck) {
-                this.drawNewCard(deck, this.currentHand[deck]);
+            initializeDecks: function () {
+                var availableCards = this.cards.split('|');
+                (availableCards).forEach(element => this.cardAdd(element));
             },
-            currentHandToHash: function () {
-                var hash = "";
-                this.deckTypes.forEach(e => {
-                    hash += "-" + this.currentHand[e].id;
-                });
-                location.hash = "#" + hash.substring(1);
+
+
+            onCardNew: function (deck) {
+                this.cardDeal(deck, this.currentHand[deck]);
             },
-            getCardFromDeck: function (deck, id) {
+
+            cardGet: function (deck, id) {
                 return this.decks[deck].find(function (v, i) {
                     return v.id === id
                 });
             },
-            drawNewCards: function () {
-                if (this.currentHand !== null) {
-                    this.facedownAll();
-                }
-                setTimeout(() => {
-                    this.currentHand === null;
-                    this.currentHand = {
-                        body: {},
-                        eyes: {},
-                        nose: {},
-                        mouth: {},
-                        complement: {}
-                    };
-                    this.drawFullSet();
-
-                    setTimeout(this.revealAll, 500)
-                    setTimeout(this.currentHandToHash, 1000);
-                }, 500);
-            },
-            revealAll: function () {
-                this.deckTypes.forEach(element => {
-                    this.$refs[element][0].reveal()
-                });
-            },
-            facedownAll: function () {
-                this.deckTypes.forEach(element => {
-                    this.faceDownCard(element)
-                });
-            },
-            drawNewCard: function (deck, currentCard) {
-                this.faceDownCard(deck);
+            cardDeal: function (deck, currentCard) {
+                this.cardFacedown(deck);
                 setTimeout(() => {
                     if (!currentCard) {
                         this.currentHand[deck] = this.fn.randomFromArray(this.decks[deck]);
@@ -157,38 +113,29 @@
                         }
                         return;
                     }
-                    this.currentHand[deck] = this.getDifferentCard(deck, currentCard);
-                    this.currentHandToHash();
+                    this.currentHand[deck] = this.cardGetAnother(deck, currentCard);
+                    this.handToHash();
                     setTimeout(this.$refs[deck][0].reveal, 500);
                 }, 500);
             },
-            faceDownCard: function (deck) {
+            cardFacedown: function (deck) {
                 if (this.$refs[deck]) {
                     this.$refs[deck][0].facedown()
                 }
             },
-            revealCard: function (deck) {
+            cardReveal: function (deck) {
                 if (this.$refs[deck]) {
                     this.$refs[deck][0].reveal()
                 }
             },
-            getDifferentCard: function (deck, currentCard) {
+            cardGetAnother: function (deck, currentCard) {
                 var drawCard = currentCard;
                 while (drawCard.cardname === currentCard.cardname) {
                     drawCard = this.fn.randomFromArray(this.decks[deck]);
                 }
                 return drawCard;
             },
-            drawFullSet: function () {
-                this.deckTypes.forEach(element => {
-                    this.drawNewCard(element);
-                });
-            },
-            initializeDecks: function () {
-                var availableCards = this.cards.split('|');
-                (availableCards).forEach(element => this.addCard(element));
-            },
-            addCard: function (card) {
+            cardAdd: function (card) {
                 var elements = card.split(',');
                 if (elements.length < 4) {
                     return;
@@ -204,7 +151,47 @@
                     power: elements[3],
                     image: this.cardImagesPath + "/" + elements[0] + "/" + elements[1] + ".svg"
                 })
-            }
+            },
+            handDeal: function () {
+                if (this.currentHand !== null) {
+                    this.handFacedown();
+                }
+                setTimeout(() => {
+                    this.currentHand === null;
+                    this.currentHand = {
+                        body: {},
+                        eyes: {},
+                        nose: {},
+                        mouth: {},
+                        complement: {}
+                    };
+                    this.deckTypes.forEach(element => {
+                        this.cardDeal(element);
+                    });
+
+                    setTimeout(this.handReveal, 500)
+                    setTimeout(this.handToHash, 1000);
+                }, 500);
+            },
+            handFacedown: function () {
+                this.deckTypes.forEach(element => {
+                    this.cardFacedown(element)
+                });
+            },
+            handReveal: function () {
+                this.deckTypes.forEach(element => {
+                    this.$refs[element][0].reveal()
+                });
+            },
+
+            handToHash: function () {
+                var hash = "";
+                this.deckTypes.forEach(e => {
+                    hash += "-" + this.currentHand[e].id;
+                });
+                location.hash = "#" + hash.substring(1);
+            },
+
         },
 
     });

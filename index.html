@@ -27,13 +27,13 @@
                         @click="selectedLanguage='en'">English</button>
                 </div>
             </div>
-            <button class="button is-primary" @click="drawNewCards">{{i18n[selectedLanguage].drawNewCards}}</button>
+            <button class="button is-primary" @click="handDeal">{{i18n[selectedLanguage].dealHand}}</button>
             <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
                 <monster-card v-for="deckType in deckTypes" :key="deckType" :ref="deckType"
                     v-bind:deckname='i18n[selectedLanguage][deckType]' v-bind:cardname='currentHand[deckType].cardname'
                     v-bind:power='currentHand[deckType].power' v-bind:syllabe='currentHand[deckType].syllabe'
                     v-bind:deck='currentHand[deckType].deck' v-bind:image='currentHand[deckType].image'
-                    v-on:request-new-card='newCard(deckType)'
+                    v-on:request-new-card='onCardNew(deckType)'
                     v-bind:newcardliteral="i18n[selectedLanguage].newCard[deckType]">
                 </monster-card>
             </div>
