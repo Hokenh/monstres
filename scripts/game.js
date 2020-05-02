@@ -15,6 +15,7 @@
                     mouth: "Boca",
                     complement: "Complement",
                     dealHand: "Reparteix cartes",
+                    instructions: "Cóm jugar-hi?",
                     newCard: {
                         body: "Nou cos",
                         eyes: "Nous ulls",
@@ -30,6 +31,7 @@
                     mouth: "Boca",
                     complement: "Complemento",
                     dealHand: "Reparte cartas",
+                    instructions: "Cómo jugar?",
                     newCard: {
                         body: "Nuevo cuerpo",
                         eyes: "Nuevos ojos",
@@ -45,6 +47,7 @@
                     mouth: "Mouth",
                     complement: "Complement",
                     dealHand: "Draw cards",
+                    instructions: "How to play?",
                     newCard: {
                         body: "New body",
                         eyes: "New eyes",
@@ -85,6 +88,20 @@
                 });
 
                 setTimeout(this.handReveal, 1000)
+            }
+        },
+        computed: {
+            instructionslink() {
+
+                switch (this.selectedLanguage) {
+                    case 'es':
+                        return "instructions/espanyol.html"
+                    case 'en':
+                        return "instructions/english.html"
+                    case 'ca':
+                    default:
+                        return "instructions/catala.html"
+                }
             }
         },
         methods: {
