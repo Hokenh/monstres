@@ -30,7 +30,7 @@
                         @click="selectedLanguage='en'">English</button>
                 </div>
             </div>
-            <button class="button is-primary" @click="handDeal" v-bind:html="i18n[selectedLanguage].dealHand"></button>
+            <button class="button is-primary" @click="handDeal" v-html="i18n[selectedLanguage].dealHand"></button>
             <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
                 <monster-card v-for="deckType in deckTypes" :key="deckType" :ref="deckType"
                     v-bind:deckname='i18n[selectedLanguage][deckType]' v-bind:cardname='currentHand[deckType].cardname'
