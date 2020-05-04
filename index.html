@@ -15,102 +15,68 @@
 </head>
 
 <body class="bg">
-    {% include noscriptgtm.html %}
-    <div id="app">
+    <div id="game">
+        {% include noscriptgtm.html %}
+        <div>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://hokenh.github.io/monstres">
+                        <img src="assets/logos/logo.svg" width="112" height="28">
+                    </a>
 
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="https://hokenh.github.io/monstres">
-                    <img src="assets/logos/logo.svg" width="112" height="28">
-                </a>
-
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                    data-target="mainNav">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-
-            <div id="mainNav" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" @click="handDeal" v-html="i18n[selectedLanguage].dealHand"></a>
-
-                    <a class="navbar-item" target="_blank" :href="instructionslink"
-                        v-html="i18n[selectedLanguage].instructions">
-                        Documentation
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                        data-target="mainNav">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
                     </a>
                 </div>
 
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons has-addons">
-                            <button class="button" :class="{'is-success': selectedLanguage == 'ca'}"
-                                @click="selectedLanguage='ca'">Català</button>
-                            <button class="button" :class="{'is-success': selectedLanguage == 'es'}"
-                                @click="selectedLanguage='es'">Español</button>
-                            <button class="button" :class="{'is-success': selectedLanguage == 'en'}"
-                                @click="selectedLanguage='en'">English</button>
+                <div id="mainNav" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" @click="handDeal" v-html="t('dealHand')"></a>
+                        <a class="navbar-item" target="_blank" :href="this.languages[selectedLanguage].instructionsURL"
+                            v-html="t('instructions')"></a>
+                    </div>
+
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons has-addons">
+                                <button class="button" :class="{'is-success': selectedLanguage == lang.code}"
+                                    v-for='lang in languages' :key='lang.code' @click="selectedLanguage=lang.code"
+                                    v-html='lang.name'></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <div class="main-container">
-            <div>
-                <div class="buttons is-left">
-                    <a class="button is-primary" @click="handDeal" v-html="i18n[selectedLanguage].dealHand"></a>
+            <div class="main-container">
+                <div class="hide-on-printer-version">
+                    <div class="buttons is-left">
+                        <a class="button is-primary" @click="handDeal" v-html="t('dealHand')"></a>
+                        <a class="button" v-show="currentHand!== null" @click="print" v-html="t('print')"></a>
+                    </div>
                 </div>
 
-            </div>
 
-
-            <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
-                <monster-card v-for="deckType in deckTypes" :key="deckType" :ref="deckType"
-                    v-bind:deckname='i18n[selectedLanguage][deckType]' v-bind:cardname='currentHand[deckType].cardname'
-                    v-bind:power='currentHand[deckType].power' v-bind:syllabe='currentHand[deckType].syllabe'
-                    v-bind:deck='currentHand[deckType].deck' v-bind:image='currentHand[deckType].image'
-                    v-on:request-new-card='onCardNew(deckType)'
-                    v-bind:newcardliteral="i18n[selectedLanguage].newCard[deckType]">
-                </monster-card>
-            </div>
-            <div>
+                <div class="monstercards-container monstercards-container-5-monstercards" v-if="currentHand !== null">
+                    <monster-card v-for="deckType in deckTypes" :key="deckType" :ref="deckType"
+                        v-bind:deckname="t(deckType)" v-bind:cardname='currentHand[deckType].cardname'
+                        v-bind:power='currentHand[deckType].power' v-bind:syllabe='currentHand[deckType].syllabe'
+                        v-bind:deck='currentHand[deckType].deck' v-bind:image='currentHand[deckType].image'
+                        v-on:request-new-card='onCardNew(deckType)' v-bind:newcardliteral="t('newCard'+deckType)">
+                    </monster-card>
+                </div>
+                <div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 <script src=" https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
 <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
 <script src="scripts/card.js"></script>
 <script src="scripts/game.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-
-            // Add a click event on each of them
-            $navbarBurgers.forEach(el => {
-                el.addEventListener('click', () => {
-
-                    // Get the target from the "data-target" attribute
-                    const target = el.dataset.target;
-                    const $target = document.getElementById(target);
-
-                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                    el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-
-                });
-            });
-        }
-
-    });
-</script>
 
 </html>

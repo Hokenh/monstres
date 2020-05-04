@@ -54,6 +54,7 @@
 }
 
 .monstercard .front,
+.monstercard .printable-card,
 .monstercard .back {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -122,7 +123,7 @@
     border-top: 2px dashed black;
     width: 100%;
     font-weight: 700;
-    font-size: 1.5vw;
+    font-size: 2vw;
     background: white;
     z-index: 9;
     background-size: 0.8vw 0.8vw;
@@ -148,4 +149,62 @@
     color: white;
     background: black;
     z-index: 10;
+}
+
+
+@media screen {
+    .monstercard.printable-version {
+        display: none !important;
+    }
+}
+
+@media print {
+    .bg {
+        background: none;
+    }
+
+    .navbar,
+    .hide-on-printer-version,
+    .no-printable {
+        display: none !important;
+    }
+
+    .back {
+        display: none;
+    }
+
+    .monstercard .power {
+        background: white;
+        border: 1px solid black;
+        color: black;
+        font-size: 1vw;
+
+    }
+
+    .monstercard.nose .inner-grid {
+        background: none;
+    }
+
+    .monstercard.mouth .inner-grid {
+        background: none;
+    }
+
+    .monstercard.body .inner-grid {
+        background: none;
+    }
+
+    .monstercard.eyes .inner-grid {
+        background: none;
+    }
+
+    .monstercard.complement .inner-grid {
+        background: none;
+    }
+
+    .monstercard .syllabe {
+        background-image: linear-gradient(to right,
+                rgba(0, 0, 0, 0.2) 0.1vw,
+                transparent 0.1vw),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0.1vw, transparent 0.1vw);
+    }
 }

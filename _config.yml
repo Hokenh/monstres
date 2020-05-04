@@ -1,6 +1,7 @@
 theme: jekyll-theme-tactile
 #Google Analytics
 google_analytics: UA-165263820-1
+google_tagmanager: GTM-NGR2WHD
 url: https://hokenh.github.com/monstres
 plugins:
   - jekyll-relative-links
